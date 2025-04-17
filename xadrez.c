@@ -4,7 +4,6 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
@@ -28,11 +27,83 @@ int main() {
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
     
+//bloco de recursividade
+void movTorre (int casas) {
 
-    //bloco de variáveis
-    int t = 1;
-    int b = 1;
-    int movCavalo = 1;
+    if (casas > 0)
+    {
+        printf ("Direita\n");
+        movTorre (casas - 1);
+    }
+    
+}
+
+void movBispo (int casas) {
+
+    if (casas > 0)
+    {
+        for (int i = 1; i <= 1; i++)
+        {
+        //eixo vertical
+        printf ("Cima");
+        printf (" "); //espaço utilizado para melhor visualização
+            for (int j = 1; j <= 1; j++)
+            {
+                //eixo horizontal
+                printf ("Direita");
+            }
+        printf ("\n");
+        movBispo (casas - 1);
+        }
+    }        
+}
+
+void movRainha (int casas){
+
+    if (casas > 0){
+        printf ("Esquerda\n");
+        movRainha (casas - 1);
+    }
+}
+
+//void movCavalo (int casas) {
+//void movCavalo (int casasCima, int casasDireita){
+void movCavalo (){
+
+   for (int i = 0, j = 0; i < 2 && j < 1; i++) {
+       printf ("Cima\n");
+       for (j; j < 1 && i == 1; j++)
+       {
+        printf ("Direita\n");
+       }
+    }
+
+/*      //realizei o exercício utilizando tanto o continue (exemplo abaixo) quanto o for aninhado com múltiplas condições (exemplo acima)
+        //não encontrei a necessidade de mesclar ambas as técnicas, sendo possível realizar de um jeito ou de outro de forma eficaz
+    for (int i = 0; i < casas; i++)
+    {
+        if (i < casas - 1)
+        {
+            printf ("Cima\n");
+            continue;
+        }   
+        printf ("Direita\n");
+    }
+
+        //também realizei o exercício utilizando recursividade
+        if (casasCima > 0) {
+        printf ("Cima\n");
+        movCavalo (casasCima - 1, casasDireita);
+    } else if (casasDireita > 0) {
+        printf ("Direita\n");
+        movCavalo (casasCima, casasDireita - 1);
+    }
+
+
+*/
+}
+
+int main () {
 
     //bloco de apresentação do jogo
     printf ("Bem-vindo ao jogo de Xadrez!\n");
@@ -40,40 +111,27 @@ int main() {
     //mover a torre 5 casas para a direita
     printf ("\n"); //pular linha para melhor apresentação do resultado
     printf ("Torre, andar 5 casas para a direita.\n");
-    while (t <= 5)
-    {
-        printf ("Direita\n");
-        t++;
-    }
+    movTorre (5);
     
     //mover o bispo 5 casas na diagonal cima direita
     printf ("\n"); //pular linha para melhor apresentação do resultado
     printf ("Bispo, mover 5 casas na diagonal cima direita.\n");
-    do
-    {
-        printf ("Cima Direita\n");
-        b++;
-    } while (b <= 5);
+    movBispo (5);
     
     //mover a rainha 8 casas para a esquerda
     printf ("\n"); //pular linha para melhor apresentação do resultado
     printf ("Rainha, mover 8 casas para a esquerda.\n");
-    for (int r = 1; r <= 8; r++)
-    {
-        printf ("Esquerda\n");
-    }
-    
-    //mover o cavalo 2 casas para baixo e 1 para a esquerda
+    movRainha (8);
+
+    //mover o cavalo 2 casas para cima e 1 para a direita
     printf ("\n"); //pular linha para melhor apresentação do resultado
-    printf ("Cavalo, mover 2 casas para a baixo e 1 para a esquerda.\n");
-    while (movCavalo--)
-    {
-        for (int c = 1; c <= 2; c++)
-        {
-            printf ("Baixo\n");
-        }
-        printf ("Esquerda\n");
-    }
+    printf ("Cavalo, mover 2 casas para cima e 1 para a direita.\n");
+    movCavalo ();
+    //movCavalo (3);
+    //movCavalo (2, 1);
+
+
+
 
 
     return 0;
