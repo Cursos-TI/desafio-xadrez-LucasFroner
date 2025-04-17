@@ -32,6 +32,7 @@ int main() {
     //bloco de variáveis
     int t = 1;
     int b = 1;
+    int movCavalo = 1;
 
     //bloco de apresentação do jogo
     printf ("Bem-vindo ao jogo de Xadrez!\n");
@@ -62,7 +63,17 @@ int main() {
         printf ("Esquerda\n");
     }
     
-
+    //mover o cavalo 2 casas para baixo e 1 para a esquerda
+    printf ("\n"); //pular linha para melhor apresentação do resultado
+    printf ("Cavalo, mover 2 casas para a baixo e 1 para a esquerda.\n");
+    while (movCavalo--)
+    {
+        for (int c = 1; c <= 2; c++)
+        {
+            printf ("Baixo\n");
+        }
+        printf ("Esquerda\n");
+    }
 
 
     return 0;
